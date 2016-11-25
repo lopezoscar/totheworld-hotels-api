@@ -5,9 +5,8 @@ const router = express.Router();
 const hotels = require('../../lib/hotels');// TODO Cambiar pasaje de modules.
 
 router.get('/', function index (req, res) {
-
   hotels.findHotels()
-        .then(hotels => res.json(hotels))
+        .then(hotels => res.json({hotels}))
         .catch(function (err) {
           res.json({
             err: 500001,
