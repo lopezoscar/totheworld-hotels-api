@@ -2,9 +2,8 @@
   "name": "totheworld-hotels-api",
   "version": "1.0.0",
   "description": "Hotels API",
-  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "DEBUG=api* node ./bin/www",
     "test": "node node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha -- --recursive --reporter spec",
     "fix":"semistandard --fix"
   },
