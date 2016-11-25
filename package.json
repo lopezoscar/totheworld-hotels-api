@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "semistandard"
+    "test": "node node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha -- --recursive --reporter spec",
+    "fix":"semistandard --fix"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
     "API"
   ],
   "author": "Oscar López",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/lopezoscar/totheworld-hotels-api/issues"
   },
@@ -30,6 +31,16 @@
     "mongojs": "^2.4.0"
   },
   "devDependencies": {
-    "semistandard": "^9.1.0"
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "semistandard": "^9.1.0",
+    "supertest": "^2.0.1"
+  },
+  "semistandard": {
+    "ignore": [
+      "/test"
+    ]
   }
 }
