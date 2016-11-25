@@ -5,38 +5,37 @@ const mongojs = require('mongojs');
 console.log(config);
 const db = mongojs(config.get('db.stringconn'), config.get('db.collections'));
 
-db.hotels.drop(function(err,result){
-    if(err){
-        console.log('Error drop hotels collection' ,err);
-    }else{
-        insertHotels();
-    }
+db.hotels.drop(function (err, result) {
+  if (err) {
+    console.log('Error drop hotels collection', err);
+  } else {
+    insertHotels();
+  }
 });
 
-function insertHotels (){
-    db.hotels.insert([
-        {
-            'name': 'Hotel Emperador',
-            'stars': '3',
-            'price': '1596'
-        },
-        {
-            'name': 'Petit Palace San Bernardo',
-            'stars': '4',
-            'price': '2145'
-        },
-        {
-            'name': 'Hotel Nuevo Boston',
-            'stars': '2',
-            'price': '861'
-        }
-    ], function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-        }
-    });
-
+function insertHotels () {
+  db.hotels.insert([
+    {
+      'name': 'Hotel Emperador',
+      'stars': '3',
+      'price': '1596'
+    },
+    {
+      'name': 'Petit Palace San Bernardo',
+      'stars': '4',
+      'price': '2145'
+    },
+    {
+      'name': 'Hotel Nuevo Boston',
+      'stars': '2',
+      'price': '861'
+    }
+  ], function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
 }
 
