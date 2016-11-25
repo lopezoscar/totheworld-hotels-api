@@ -1,0 +1,9 @@
+{
+  "webapp":{
+    "port":3000
+  },
+  "db":{
+    "stringconn":"mongodb://localhost:27017/hotels-api",
+    "collections":["hotels"]
+  }
+}
