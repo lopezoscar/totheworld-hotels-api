@@ -7,23 +7,19 @@ const jwt = require('jsonwebtoken');
 
 const secret = process.env.JWT_SECRET || require('../../.credentials/jwt.json').secret;// TODO Validar
 
-router.post('/', function(req, res) {
-
-  //TODO Validate username and password.
-  //TODO encrypt the password.
+router.post('/', function (req, res) {
+  // TODO Validate username and password.
+  // TODO encrypt the password.
 
   // find the user
-  users.getUserByUsername(req.body.name).then( function(user) {
-
+  users.getUserByUsername(req.body.name).then(function (user) {
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (user) {
-
       // check if password matches
       if (user.password !== req.body.password) {
         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
       } else {
-
         // if user is found and password is right
         // create a token
         var token = jwt.sign(user, secret, {
@@ -38,7 +34,7 @@ router.post('/', function(req, res) {
         });
       }
     }
-  }).catch(function(err){
+  }).catch(function (err) {
     console.log(err);
     res.json({ success: false, message: 'Authentication failed. User not found.' });
   });

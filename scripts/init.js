@@ -39,12 +39,21 @@ function insertHotels () {
   });
 }
 
-
-db.users.drop(function(err, result){
-  db.users.insert([
-    {
-      'name':'lopezoscar',
-      'password':'anitalavalatina'
-    }
-  ]);
+db.users.drop(function (err, result) {
+  if (err) {
+    console.log(err);
+  } else {
+    db.users.insert([
+      {
+        'name': 'lopezoscar',
+        'password': 'anitalavalatina'
+      }
+    ], function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+      }
+    });
+  }
 });
