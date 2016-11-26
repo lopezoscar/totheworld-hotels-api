@@ -4,6 +4,6 @@
   },
   "db":{
     "stringconn":"mongodb://localhost:27017/hotels-api",
-    "collections":["hotels"]
+    "collections":["hotels","users"]
   }
 }

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "DEBUG=api* node ./bin/www",
     "test": "node node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha -- --recursive --reporter spec",
-    "fix":"semistandard --fix"
+    "fix": "semistandard --fix",
+    "setup": "node scripts/init"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,11 @@
     "config": "^1.24.0",
     "debug": "^2.3.3",
     "express": "^4.14.0",
-    "mongojs": "^2.4.0"
+    "express-jwt": "^5.1.0",
+    "helmet": "^3.1.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongojs": "^2.4.0",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
