@@ -46,7 +46,8 @@ db.users.drop(function (err, result) {
     db.users.insert([
       {
         'name': 'lopezoscar',
-        'apikey': uuid.v4()
+        'apikey': uuid.v4(),
+        'limit': 10000// 10 mil por hora
       }
     ], function (err, result) {
       if (err) {

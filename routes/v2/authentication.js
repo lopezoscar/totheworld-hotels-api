@@ -22,7 +22,7 @@ router.post('/', function (req, res) {
       } else {
         // if user is found and apikey is right
         // create a token
-        var token = jwt.sign(user, secret, {
+        var token = jwt.sign({ user_id: user._id, limit: user.limit }, secret, {
           expiresIn: '1d'// expires in 24 hours
         });
 
