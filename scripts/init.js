@@ -2,8 +2,8 @@
 
 const config = require('config');
 const mongojs = require('mongojs');
-console.log(config);
 const db = mongojs(config.get('db.stringconn'), config.get('db.collections'));
+const uuid = require('node-uuid');
 
 db.hotels.drop(function (err, result) {
   if (err) {
@@ -46,7 +46,7 @@ db.users.drop(function (err, result) {
     db.users.insert([
       {
         'name': 'lopezoscar',
-        'password': 'anitalavalatina'
+        'apikey': uuid.v4()
       }
     ], function (err, result) {
       if (err) {

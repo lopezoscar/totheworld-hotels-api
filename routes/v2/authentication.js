@@ -12,15 +12,15 @@ router.post('/', function (req, res) {
   // TODO encrypt the password.
 
   // find the user
-  users.getUserByUsername(req.body.name).then(function (user) {
+  users.getUserByApiKey(req.body.apikey).then(function (user) {
     if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (user) {
       // check if password matches
-      if (user.password !== req.body.password) {
-        res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+      if (user.apikey !== req.body.apikey) {
+        res.json({ success: false, message: 'Authentication failed. Wrong apikey.' });
       } else {
-        // if user is found and password is right
+        // if user is found and apikey is right
         // create a token
         var token = jwt.sign(user, secret, {
           expiresIn: '1d'// expires in 24 hours
